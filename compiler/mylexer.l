@@ -5,12 +5,17 @@ ParserWizard generated Lex file.
 
 Date: 2017年10月9日
 ****************************************************************************/
+#ifndef YYSTYPE
+#define YYSTYPE int
+#endif
 #include "myparser.h"
 #include <cstring>
 #include <string>
 #include <iostream>
+#include <stdio.h>
+#include<sstream>
+using namespace std;
 %}
-
 /////////////////////////////////////////////////////////////////////////////
 // declarations section
 
@@ -24,7 +29,6 @@ void addToken(char*token,char*lexme);
 int getIndex(char*lexme);
 void printToken();
 int id_state = -1;
-//定义符号表的结构
 struct TokenAndLexme{
     char * token;
     char * lexme;
@@ -44,7 +48,8 @@ struct TokenAndLexme{
 
 // place any declarations here
 
-number [1-9]?[0-9]+\.?[0-9]*
+integer [1-9]?[0-9]+
+number  [1-9]?[0-9]+\.?[0-9]*
 identifier (_|[a-zA-Z])?[A-Za-z_0-9]+
 literal \"[^\"]*?\"|'[^']*?'
 %%
@@ -56,64 +61,65 @@ literal \"[^\"]*?\"|'[^']*?'
 	YYSTYPE YYFAR& yylval = *(YYSTYPE YYFAR*)yyparserptr->yylvalptr;
 %}
 //关键字
-"int"  { addToken("INT",yytext); }
-"char"  { addToken("CHAR",yytext); }
-"string"  { addToken("STRING",yytext); }
-"double"
-|"float"  {addToken("FLOAT",yytext);}
-"void"  {addToken("VOID",yytext);}
-"if"  { addToken("IF",yytext); }
-"else"  { addToken("ELSE",yytext); }
-"while"  { addToken("WHILE",yytext); }
-"for"  { addToken("FOR",yytext); }
-"do"  { addToken("DO",yytext); }
-"bool"  { addToken("BOOL",yytext); }
+"bool"  { addToken("BOOL",yytext); return BOOL;}
+"int"  { addToken("INT",yytext); return INTEGER;}
+"char"  { addToken("CHAR",yytext); return CHAR;}
+"string"  { addToken("STRING",yytext); return STRING;}
+"doule"
+|"float"  {addToken("FLOAT",yytext);return FLOAT;}
+"void"  {addToken("VOID",yytext); return VOID;}
+"if"  { addToken("IF",yytext); return IF;}
+"else"  { addToken("ELSE",yytext); return ELSE;}
+"while"  { addToken("WHILE",yytext); return WHILE;}
+"for"  { addToken("FOR",yytext); return FOR;}
+"do"  { addToken("DO",yytext); return DO;}
 //符号
-"+"  { addToken("PLUS",yytext); }
-"-"  { addToken("MINUS",yytext); }
-"*"  { addToken("MUL",yytext); }
-"/"  { addToken("DIV",yytext); }
-"^"  { addToken("POW",yytext); }
+"+"  { addToken("PLUS",yytext); return PLUS;}
+"-"  { addToken("MINUS",yytext); return MINUS;}
+"*"  { addToken("MUL",yytext); return MUL;}
+"/"  { addToken("DIV",yytext); return DIV;}
+"^"  { addToken("POW",yytext); return POW;}
 "**" { addToken("EXP",yytext); }
-"==" { addToken("EQU",yytext); }
-"++" { addToken("SADD",yytext); }
-"--" { addToken("SSUB",yytext); }
-"||" { addToken("OR",yytext); }
-"&&" { addToken("AND",yytext); }
-"!"  { addToken("NOT",yytext); }
-"="  { addToken("ASSIGN",yytext); }
-"{"  { addToken("LBRACE",yytext); }
-"}"  { addToken("RBRACE",yytext); }
-"("  { addToken("LBRACKET",yytext); }
-")"  { addToken("RBRACKET",yytext); }
-":"  { addToken("COLON",yytext); }
-"->"  { addToken("POINTER",yytext); }
-"&"  { addToken("REF",yytext); }
-\'|\"  { addToken("QUOTE",yytext); }
-","  { addToken("COMMA",yytext); }
-";"  { addToken("SEMICOLON",yytext); }
-"<"  { addToken("LESS",yytext);  }
-">"  { addToken("MORE",yytext);  }
-"<<"  { addToken("OUTPUT",yytext);  }
-">>"  { addToken("INPUT",yytext);  }
-"."  { addToken("DOT",yytext);  }
-"["  { addToken("LSQBRACKET",yytext);}
-"]"  { addToken("RSQBRACKET",yytext);}
-//空格
-[\t ]+
-//结尾
-\n  ;  ;
+"==" { addToken("EQU",yytext); return EQU;}
+"++" { addToken("SADD",yytext); return SADD;}
+"--" { addToken("SSUB",yytext); return SSUB;}
+"||" { addToken("OR",yytext); return OR;}
+"&&" { addToken("AND",yytext); return AND;}
+"!"  { addToken("NOT",yytext); return NOT;}
+"="  { addToken("ASSIGN",yytext); return ASSIGN;}
+"{"  { addToken("LBRACE",yytext);return LBRACE;}
+"}"  { addToken("RBRACE",yytext); return RBRACE;}
+"("  { addToken("LBRACKET",yytext); return LBRACKET;}
+")"  { addToken("RBRACKET",yytext); return RBRACKET;}
+":"  { addToken("COLON",yytext); return COLON;}
+"->"  { addToken("POINTER",yytext); return POINTER;}
+"&"  { addToken("REF",yytext); return REF;}
+\'|\"  { addToken("QUOTE",yytext); return QUOTE;}
+","  { addToken("COMMA",yytext); return COMMA;}
+";"  { addToken("SEMICOLON",yytext); return SEMICOLON;}
+[\t ]+  ;
 //字符串、数字、其余标识符
 {literal}  { addToken("LITERAL",yytext); }
-{number}((E|e)[+-]?{number})?  { addToken("DIGIT",yytext); }
-{identifier}  { addToken("ID",yytext); }
-
+{integer}  {
+               addToken("INTEGER",yytext);
+               stringstream ss;
+               ss<<yytext;
+               int sum;
+               ss>>sum;
+               yylval = sum;
+               return INTEGER;
+           }
+{number}  {addToken("FLOAT",yytext); yylval = atof(yytext); printf("%f",&yylval);getchar(); return FLOAT;}
+{number}((E|e)[+-]?{number})?  { addToken("DIGIT",yytext); yylval = atoi(yytext); }
+{identifier}  { addToken("ID",yytext); return ID;}
+//结尾
+\n  {return ENDFLAG;}
 // place your Lex rules here
-
 %%
 
 /////////////////////////////////////////////////////////////////////////////
 // programs section
+//定义符号表的结构
 
 TokenAndLexme * token_head = new TokenAndLexme();
 //往符号表中添加符号
