@@ -93,16 +93,6 @@ expr1: expr1 MUL expr1  { $$.dval = $1.dval* $3.dval; }      //乘法运算
  	 | INTEGER  { $$.ival = $1; }               //获得数值
  	 | FLOAT { $$.dval = $1; }
 	 ;
-	 
-	 //赋值运算
-	 //while
-	 //for
-	 //class
-	 //struct
-	 //function
-	 //logical symbol's action
-	 //the declare part
-	 //how to print the abstract syntax tree
 %%
 
 /////////////////////////////////////////////////////////////////////////////
