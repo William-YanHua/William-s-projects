@@ -25,7 +25,9 @@ using namespace std;
 %name myparser
 
 // class definition
+
 {
+
 	// place any extra class members here
 	
 }
@@ -40,14 +42,15 @@ using namespace std;
 	// place any extra cleanup code here
 }
 // attribute type
+%union {
+    double dval;
+    int ival;
+}
+%token <dval> FLOAT
+%token <ival> INTEGER
 %include {
 	// place any extra class members here
-	#ifndef YYSTYPE
-	#define YYSTYPE int
-	#define yylval (*reinterpret_cast<YYSTYPE*>(yylvalptr))
-	#endif
 }
-
 
 // place any declarations here
 
@@ -65,29 +68,30 @@ using namespace std;
 %left PLUS MINUS
 %left MUL DIV
 %nonassoc UMINUS
+%type 
 %%
 
 /////////////////////////////////////////////////////////////////////////////
 // rules section
 
 // place your YACC rules here (there must be at least one)
-start: start expr ENDFLAG {printf("end!%s\n",$2);}
+start: start expr ENDFLAG {printf("end!%f\n",$2);}
      | start ENDFLAG 
      |
      ;
-expr: expr1 PLUS expr1  { $$ = $1 + $3; }      //加法运算
-	| expr1 MINUS expr1 { $$ = $1 - $3; }      //减法运算
+expr: expr1 PLUS expr1  { $$.dval = $1.dval + $3.dval; }      //加法运算
+	| expr1 MINUS expr1 { $$.dval = $1.dval - $3.dval; }      //减法运算
 	| expr1
 	;
-expr1: expr1 MUL expr1  { $$ = $1 * $3; }      //乘法运算
-	 | expr1 DIV expr1  { $$ = $1 / $3; }      //除法运算
- 	 | LBRACKET expr RBRACKET { $$ = $2; }     //带有括号的运算
- 	 | MINUS expr1 %prec UMINUS { $$ = -$2; }  //负数
- 	 | SSUB expr1 { $$ = $2 - 1; }             //自减运算  还没有对 ++a 跟 a++做区分
- 	 | SADD expr1 { $$ = $2 + 1; }             //自增运算  同上
- 	 | expr1 POW expr1 { $$ = pow($1,$3); }    //乘方运算
- 	 | INTEGER  { $$ = yylval; }               //获得数值
- 	 | FLOAT { $$ = $1; }
+expr1: expr1 MUL expr1  { $$.dval = $1.dval* $3.dval; }      //乘法运算
+	 | expr1 DIV expr1  { $$.dval = $1.dval / $3.dval; }      //除法运算
+ 	 | LBRACKET expr RBRACKET { $$.dval = $2.dval; }     //带有括号的运算
+ 	 | MINUS expr1 %prec UMINUS { $$.ival = -$2.ival; }  //负数
+ 	 | SSUB expr1 { $$.dval = $2.dval - 1; }             //自减运算  还没有对 ++a 跟 a++做区分
+ 	 | SADD expr1 { $$.dval = $2.dval + 1; }             //自增运算  同上
+ 	 | expr1 POW expr1 { $$.dval = pow($1.dval,$3.dval); }    //乘方运算
+ 	 | INTEGER  { $$.ival = $1; }               //获得数值
+ 	 | FLOAT { $$.dval = $1; }
 	 ;
 	 
 	 //赋值运算
@@ -97,31 +101,21 @@ expr1: expr1 MUL expr1  { $$ = $1 * $3; }      //乘法运算
 	 //struct
 	 //function
 	 //logical symbol's action
-	 // the declare part
+	 //the declare part
 	 //how to print the abstract syntax tree
 %%
 
 /////////////////////////////////////////////////////////////////////////////
 // programs section
-
 int main(void)
 {
 	int n = 1;
 	mylexer lexer;
 	myparser parser;
-    char* inputFile, *outputFile;
-	inputFile = new char[200];
-	outputFile = new char[200];
-	FILE *stream1, *stream2;
-	std::cout << "请依次输入待解析的文件地址和结果输出地址\n";
-	cin >> inputFile >> outputFile;
-	freopen_s(&stream1, inputFile, "r", stdin);
-	freopen_s(&stream2, outputFile, "w", stdout);
 	if (parser.yycreate(&lexer)) {
-		if (lexer.yycreate(&parser)) {
+		if (lexer.yycreate(&parser)){
 			n = parser.yyparse();
 		}
 	}
 	return n;
 }
-

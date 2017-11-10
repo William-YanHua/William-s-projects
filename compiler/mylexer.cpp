@@ -1,7 +1,7 @@
 /****************************************************************************
 *                     U N R E G I S T E R E D   C O P Y
 * 
-* You are on day 14 of your 30 day trial period.
+* You are on day 43 of your 30 day trial period.
 * 
 * This file was produced by an UNREGISTERED COPY of Parser Generator. It is
 * for evaluation purposes only. If you continue to use Parser Generator 30
@@ -18,8 +18,8 @@
 * mylexer.cpp
 * C++ source file generated from mylexer.l.
 * 
-* Date: 10/12/17
-* Time: 19:00:56
+* Date: 11/10/17
+* Time: 16:18:17
 * 
 * ALex Version: 2.07
 ****************************************************************************/
@@ -46,8 +46,11 @@ Date: 2017年10月9日
 #include <cstring>
 #include <string>
 #include <iostream>
+#include <stdio.h>
+#include<sstream>
+using namespace std;
 
-#line 51 "mylexer.cpp"
+#line 54 "mylexer.cpp"
 // repeated because of possible precompiled header
 #include <yyclex.h>
 
@@ -61,26 +64,32 @@ using namespace yl;
 
 #include ".\mylexer.h"
 
-#line 21 ".\\mylexer.l"
+#line 23 ".\\mylexer.l"
 
 struct TokenAndLexme;
 void addToken(char*token,char*lexme);
 int getIndex(char*lexme);
 void printToken();
 int id_state = -1;
+struct TokenAndLexme{
+    char * token;
+    char * lexme;
+    int index;
+    TokenAndLexme*next;
+};
 
-#line 73 "mylexer.cpp"
+#line 82 "mylexer.cpp"
 /////////////////////////////////////////////////////////////////////////////
 // constructor
 
 YYLEXERNAME::YYLEXERNAME()
 {
 	yytables();
-#line 34 ".\\mylexer.l"
+#line 42 ".\\mylexer.l"
 
 	// place any extra cleanup code here
 
-#line 84 "mylexer.cpp"
+#line 93 "mylexer.cpp"
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -153,327 +162,307 @@ void YYLEXERNAME::yyunput(int ch)
 
 int YYLEXERNAME::yyaction(int action)
 {
-#line 47 ".\\mylexer.l"
+#line 56 ".\\mylexer.l"
 
 	// extract yylval for use later on in actions
 	YYSTYPE YYFAR& yylval = *(YYSTYPE YYFAR*)yyparserptr->yylvalptr;
 
-#line 162 "mylexer.cpp"
+#line 171 "mylexer.cpp"
 	yyreturnflg = yytrue;
 	switch (action) {
 	case 1:
 		{
-#line 52 ".\\mylexer.l"
- addToken("INT",yytext); 
-#line 169 "mylexer.cpp"
+#line 61 ".\\mylexer.l"
+ addToken("BOOL",yytext); return BOOL;
+#line 178 "mylexer.cpp"
 		}
 		break;
 	case 2:
 		{
-#line 53 ".\\mylexer.l"
- addToken("CHAR",yytext); 
-#line 176 "mylexer.cpp"
+#line 62 ".\\mylexer.l"
+ addToken("INT",yytext); return INTEGER;
+#line 185 "mylexer.cpp"
 		}
 		break;
 	case 3:
 		{
-#line 54 ".\\mylexer.l"
- addToken("STRING",yytext); 
-#line 183 "mylexer.cpp"
+#line 63 ".\\mylexer.l"
+ addToken("CHAR",yytext); return CHAR;
+#line 192 "mylexer.cpp"
 		}
 		break;
 	case 4:
 		{
-#line 56 ".\\mylexer.l"
-addToken("FLOAT",yytext);
-#line 190 "mylexer.cpp"
+#line 64 ".\\mylexer.l"
+ addToken("STRING",yytext); return STRING;
+#line 199 "mylexer.cpp"
 		}
 		break;
 	case 5:
 		{
-#line 57 ".\\mylexer.l"
-addToken("VOID",yytext);
-#line 197 "mylexer.cpp"
+#line 66 ".\\mylexer.l"
+addToken("FLOAT",yytext);return FLOAT;
+#line 206 "mylexer.cpp"
 		}
 		break;
 	case 6:
 		{
-#line 58 ".\\mylexer.l"
- addToken("IF",yytext); 
-#line 204 "mylexer.cpp"
+#line 67 ".\\mylexer.l"
+addToken("VOID",yytext); return VOID;
+#line 213 "mylexer.cpp"
 		}
 		break;
 	case 7:
 		{
-#line 59 ".\\mylexer.l"
- addToken("ELSE",yytext); 
-#line 211 "mylexer.cpp"
+#line 68 ".\\mylexer.l"
+ addToken("IF",yytext); return IF;
+#line 220 "mylexer.cpp"
 		}
 		break;
 	case 8:
 		{
-#line 60 ".\\mylexer.l"
- addToken("WHILE",yytext); 
-#line 218 "mylexer.cpp"
+#line 69 ".\\mylexer.l"
+ addToken("ELSE",yytext); return ELSE;
+#line 227 "mylexer.cpp"
 		}
 		break;
 	case 9:
 		{
-#line 61 ".\\mylexer.l"
- addToken("FOR",yytext); 
-#line 225 "mylexer.cpp"
+#line 70 ".\\mylexer.l"
+ addToken("WHILE",yytext); return WHILE;
+#line 234 "mylexer.cpp"
 		}
 		break;
 	case 10:
 		{
-#line 62 ".\\mylexer.l"
- addToken("DO",yytext); 
-#line 232 "mylexer.cpp"
+#line 71 ".\\mylexer.l"
+ addToken("FOR",yytext); return FOR;
+#line 241 "mylexer.cpp"
 		}
 		break;
 	case 11:
 		{
-#line 64 ".\\mylexer.l"
- addToken("PLUS",yytext); 
-#line 239 "mylexer.cpp"
+#line 72 ".\\mylexer.l"
+ addToken("DO",yytext); return DO;
+#line 248 "mylexer.cpp"
 		}
 		break;
 	case 12:
 		{
-#line 65 ".\\mylexer.l"
- addToken("MINUS",yytext); 
-#line 246 "mylexer.cpp"
+#line 74 ".\\mylexer.l"
+ addToken("PLUS",yytext); return PLUS;
+#line 255 "mylexer.cpp"
 		}
 		break;
 	case 13:
 		{
-#line 66 ".\\mylexer.l"
- addToken("MUL",yytext); 
-#line 253 "mylexer.cpp"
+#line 75 ".\\mylexer.l"
+ addToken("MINUS",yytext); return MINUS;
+#line 262 "mylexer.cpp"
 		}
 		break;
 	case 14:
 		{
-#line 67 ".\\mylexer.l"
- addToken("DIV",yytext); 
-#line 260 "mylexer.cpp"
+#line 76 ".\\mylexer.l"
+ addToken("MUL",yytext); return MUL;
+#line 269 "mylexer.cpp"
 		}
 		break;
 	case 15:
 		{
-#line 68 ".\\mylexer.l"
- addToken("POW",yytext); 
-#line 267 "mylexer.cpp"
+#line 77 ".\\mylexer.l"
+ addToken("DIV",yytext); return DIV;
+#line 276 "mylexer.cpp"
 		}
 		break;
 	case 16:
 		{
-#line 69 ".\\mylexer.l"
- addToken("EXP",yytext); 
-#line 274 "mylexer.cpp"
+#line 78 ".\\mylexer.l"
+ addToken("POW",yytext); return POW;
+#line 283 "mylexer.cpp"
 		}
 		break;
 	case 17:
 		{
-#line 70 ".\\mylexer.l"
- addToken("EQU",yytext); 
-#line 281 "mylexer.cpp"
+#line 79 ".\\mylexer.l"
+ addToken("EXP",yytext); 
+#line 290 "mylexer.cpp"
 		}
 		break;
 	case 18:
 		{
-#line 71 ".\\mylexer.l"
- addToken("SADD",yytext); 
-#line 288 "mylexer.cpp"
+#line 80 ".\\mylexer.l"
+ addToken("EQU",yytext); return EQU;
+#line 297 "mylexer.cpp"
 		}
 		break;
 	case 19:
 		{
-#line 72 ".\\mylexer.l"
- addToken("SSUB",yytext); 
-#line 295 "mylexer.cpp"
+#line 81 ".\\mylexer.l"
+ addToken("SADD",yytext); return SADD;
+#line 304 "mylexer.cpp"
 		}
 		break;
 	case 20:
 		{
-#line 73 ".\\mylexer.l"
- addToken("OR",yytext); 
-#line 302 "mylexer.cpp"
+#line 82 ".\\mylexer.l"
+ addToken("SSUB",yytext); return SSUB;
+#line 311 "mylexer.cpp"
 		}
 		break;
 	case 21:
 		{
-#line 74 ".\\mylexer.l"
- addToken("AND",yytext); 
-#line 309 "mylexer.cpp"
+#line 83 ".\\mylexer.l"
+ addToken("OR",yytext); return OR;
+#line 318 "mylexer.cpp"
 		}
 		break;
 	case 22:
 		{
-#line 75 ".\\mylexer.l"
- addToken("NOT",yytext); 
-#line 316 "mylexer.cpp"
+#line 84 ".\\mylexer.l"
+ addToken("AND",yytext); return AND;
+#line 325 "mylexer.cpp"
 		}
 		break;
 	case 23:
 		{
-#line 76 ".\\mylexer.l"
- addToken("ASSIGN",yytext); 
-#line 323 "mylexer.cpp"
+#line 85 ".\\mylexer.l"
+ addToken("NOT",yytext); return NOT;
+#line 332 "mylexer.cpp"
 		}
 		break;
 	case 24:
 		{
-#line 77 ".\\mylexer.l"
- addToken("LBRACE",yytext); 
-#line 330 "mylexer.cpp"
+#line 86 ".\\mylexer.l"
+ addToken("ASSIGN",yytext); return ASSIGN;
+#line 339 "mylexer.cpp"
 		}
 		break;
 	case 25:
 		{
-#line 78 ".\\mylexer.l"
- addToken("RBRACE",yytext); 
-#line 337 "mylexer.cpp"
+#line 87 ".\\mylexer.l"
+ addToken("LBRACE",yytext);return LBRACE;
+#line 346 "mylexer.cpp"
 		}
 		break;
 	case 26:
 		{
-#line 79 ".\\mylexer.l"
- addToken("LBRACKET",yytext); 
-#line 344 "mylexer.cpp"
+#line 88 ".\\mylexer.l"
+ addToken("RBRACE",yytext); return RBRACE;
+#line 353 "mylexer.cpp"
 		}
 		break;
 	case 27:
 		{
-#line 80 ".\\mylexer.l"
- addToken("RBRACKET",yytext); 
-#line 351 "mylexer.cpp"
+#line 89 ".\\mylexer.l"
+ addToken("LBRACKET",yytext); return LBRACKET;
+#line 360 "mylexer.cpp"
 		}
 		break;
 	case 28:
 		{
-#line 81 ".\\mylexer.l"
- addToken("COLON",yytext); 
-#line 358 "mylexer.cpp"
+#line 90 ".\\mylexer.l"
+ addToken("RBRACKET",yytext); return RBRACKET;
+#line 367 "mylexer.cpp"
 		}
 		break;
 	case 29:
 		{
-#line 82 ".\\mylexer.l"
- addToken("POINTER",yytext); 
-#line 365 "mylexer.cpp"
+#line 91 ".\\mylexer.l"
+ addToken("COLON",yytext); return COLON;
+#line 374 "mylexer.cpp"
 		}
 		break;
 	case 30:
 		{
-#line 83 ".\\mylexer.l"
- addToken("REF",yytext); 
-#line 372 "mylexer.cpp"
+#line 92 ".\\mylexer.l"
+ addToken("POINTER",yytext); return POINTER;
+#line 381 "mylexer.cpp"
 		}
 		break;
 	case 31:
 		{
-#line 84 ".\\mylexer.l"
- addToken("QUOTE",yytext); 
-#line 379 "mylexer.cpp"
+#line 93 ".\\mylexer.l"
+ addToken("REF",yytext); return REF;
+#line 388 "mylexer.cpp"
 		}
 		break;
 	case 32:
 		{
-#line 85 ".\\mylexer.l"
- addToken("COMMA",yytext); 
-#line 386 "mylexer.cpp"
+#line 94 ".\\mylexer.l"
+ addToken("QUOTE",yytext); return QUOTE;
+#line 395 "mylexer.cpp"
 		}
 		break;
 	case 33:
 		{
-#line 86 ".\\mylexer.l"
- addToken("SEMICOLON",yytext); 
-#line 393 "mylexer.cpp"
+#line 95 ".\\mylexer.l"
+ addToken("COMMA",yytext); return COMMA;
+#line 402 "mylexer.cpp"
 		}
 		break;
 	case 34:
 		{
-#line 87 ".\\mylexer.l"
- addToken("LESS",yytext);  
-#line 400 "mylexer.cpp"
+#line 96 ".\\mylexer.l"
+ addToken("SEMICOLON",yytext); return SEMICOLON;
+#line 409 "mylexer.cpp"
 		}
 		break;
 	case 35:
 		{
-#line 88 ".\\mylexer.l"
- addToken("MORE",yytext);  
-#line 407 "mylexer.cpp"
+#line 97 ".\\mylexer.l"
+;
+#line 416 "mylexer.cpp"
 		}
 		break;
 	case 36:
 		{
-#line 89 ".\\mylexer.l"
- addToken("OUTPUT",yytext);  
-#line 414 "mylexer.cpp"
+#line 99 ".\\mylexer.l"
+ addToken("LITERAL",yytext); 
+#line 423 "mylexer.cpp"
 		}
 		break;
 	case 37:
 		{
-#line 90 ".\\mylexer.l"
- addToken("INPUT",yytext);  
-#line 421 "mylexer.cpp"
+#line 100 ".\\mylexer.l"
+
+               addToken("INTEGER",yytext);
+               stringstream ss;
+               ss<<yytext;
+               int sum;
+               ss>>sum;
+               yylval.ival = sum;
+               return INTEGER;
+           
+#line 438 "mylexer.cpp"
 		}
 		break;
 	case 38:
 		{
-#line 91 ".\\mylexer.l"
- addToken("DOT",yytext);  
-#line 428 "mylexer.cpp"
+#line 109 ".\\mylexer.l"
+addToken("FLOAT",yytext); yylval.dval = atof(yytext); return FLOAT;
+#line 445 "mylexer.cpp"
 		}
 		break;
 	case 39:
 		{
-#line 92 ".\\mylexer.l"
- addToken("LSQBRACKET",yytext);
-#line 435 "mylexer.cpp"
+#line 110 ".\\mylexer.l"
+ addToken("DIGIT",yytext); yylval.dval = atoi(yytext); return FLOAT;
+#line 452 "mylexer.cpp"
 		}
 		break;
 	case 40:
 		{
-#line 93 ".\\mylexer.l"
- addToken("RSQBRACKET",yytext);
-#line 442 "mylexer.cpp"
+#line 111 ".\\mylexer.l"
+ addToken("ID",yytext); return ID;
+#line 459 "mylexer.cpp"
 		}
 		break;
 	case 41:
 		{
-#line 96 ".\\mylexer.l"
-;
-#line 449 "mylexer.cpp"
-		}
-		break;
-	case 42:
-		{
-#line 98 ".\\mylexer.l"
- addToken("LITERAL",yytext); 
-#line 456 "mylexer.cpp"
-		}
-		break;
-	case 43:
-		{
-#line 99 ".\\mylexer.l"
- addToken("DIGIT",yytext); 
-#line 463 "mylexer.cpp"
-		}
-		break;
-	case 44:
-		{
-#line 100 ".\\mylexer.l"
- addToken("ID",yytext); 
-#line 470 "mylexer.cpp"
-		}
-		break;
-	case 45:
-		{
-#line 102 ".\\mylexer.l"
-;
-#line 477 "mylexer.cpp"
+#line 113 ".\\mylexer.l"
+return ENDFLAG;
+#line 466 "mylexer.cpp"
 		}
 		break;
 	default:
@@ -502,38 +491,38 @@ void YYLEXERNAME::yytables()
 	};
 	yymatch = match;
 
-	yytransitionmax = 247;
+	yytransitionmax = 205;
 	static const yytransition_t YYNEARFAR YYBASED_CODE transition[] = {
 		{ 0, 0 },
 		{ 3, 1 },
 		{ 4, 1 },
-		{ 44, 14 },
-		{ 46, 17 },
+		{ 40, 14 },
+		{ 42, 16 },
 		{ 3, 3 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 17, 17 },
-		{ 54, 30 },
-		{ 43, 12 },
-		{ 40, 7 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 16, 16 },
+		{ 49, 26 },
+		{ 36, 7 },
+		{ 53, 28 },
+		{ 50, 26 },
+		{ 41, 14 },
+		{ 51, 27 },
+		{ 54, 29 },
 		{ 55, 30 },
-		{ 45, 14 },
-		{ 56, 31 },
-		{ 58, 32 },
-		{ 59, 33 },
 		{ 3, 1 },
 		{ 5, 1 },
 		{ 6, 1 },
-		{ 47, 17 },
+		{ 43, 16 },
 		{ 3, 3 },
-		{ 57, 31 },
+		{ 52, 27 },
 		{ 7, 1 },
 		{ 8, 1 },
 		{ 9, 1 },
@@ -542,307 +531,261 @@ void YYLEXERNAME::yytables()
 		{ 12, 1 },
 		{ 13, 1 },
 		{ 14, 1 },
+		{ 0, 1 },
 		{ 15, 1 },
-		{ 16, 1 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
-		{ 75, 75 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 71, 71 },
+		{ 17, 1 },
 		{ 18, 1 },
+		{ 58, 43 },
 		{ 19, 1 },
+		{ 58, 43 },
+		{ 0, 43 },
+		{ 58, 57 },
+		{ 56, 32 },
+		{ 58, 57 },
+		{ 43, 16 },
+		{ 71, 70 },
 		{ 20, 1 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 70, 70 },
+		{ 35, 34 },
+		{ 35, 37 },
+		{ 38, 11 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 42, 42 },
+		{ 44, 19 },
 		{ 21, 1 },
+		{ 60, 45 },
+		{ 61, 46 },
+		{ 62, 47 },
 		{ 22, 1 },
-		{ 63, 47 },
-		{ 60, 34 },
-		{ 63, 47 },
-		{ 0, 47 },
-		{ 47, 17 },
-		{ 75, 74 },
 		{ 23, 1 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 74, 74 },
-		{ 63, 62 },
-		{ 61, 36 },
-		{ 63, 62 },
-		{ 39, 38 },
-		{ 39, 41 },
-		{ 42, 11 },
-		{ 48, 20 },
-		{ 65, 51 },
+		{ 24, 1 },
+		{ 25, 1 },
+		{ 26, 1 },
+		{ 63, 48 },
+		{ 57, 42 },
+		{ 27, 1 },
+		{ 64, 49 },
+		{ 65, 50 },
 		{ 66, 52 },
 		{ 67, 53 },
 		{ 68, 54 },
-		{ 24, 1 },
 		{ 69, 55 },
-		{ 25, 1 },
-		{ 26, 1 },
-		{ 70, 57 },
-		{ 71, 58 },
-		{ 72, 59 },
-		{ 73, 60 },
-		{ 27, 1 },
+		{ 45, 22 },
+		{ 0, 58 },
+		{ 46, 23 },
 		{ 28, 1 },
+		{ 73, 61 },
+		{ 72, 60 },
 		{ 29, 1 },
 		{ 30, 1 },
-		{ 49, 21 },
-		{ 0, 63 },
+		{ 74, 62 },
+		{ 75, 63 },
+		{ 76, 64 },
 		{ 31, 1 },
-		{ 50, 22 },
-		{ 76, 65 },
-		{ 77, 66 },
-		{ 79, 68 },
-		{ 78, 67 },
-		{ 80, 71 },
-		{ 81, 72 },
-		{ 82, 73 },
-		{ 51, 27 },
 		{ 32, 1 },
-		{ 52, 28 },
-		{ 83, 77 },
 		{ 33, 1 },
-		{ 34, 1 },
-		{ 84, 79 },
-		{ 85, 80 },
-		{ 86, 82 },
-		{ 35, 1 },
-		{ 36, 1 },
-		{ 37, 1 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 84, 83 },
-		{ 87, 85 },
-		{ 53, 29 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 57, 42 },
+		{ 77, 67 },
+		{ 78, 68 },
+		{ 79, 69 },
+		{ 47, 24 },
+		{ 48, 25 },
+		{ 80, 74 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 80, 76 },
+		{ 81, 77 },
+		{ 82, 79 },
+		{ 83, 81 },
+		{ 20, 83 },
+		{ 39, 12 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 20, 83 },
+		{ 71, 59 },
 		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 23, 87 },
-		{ 0, 0 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 23, 87 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 46, 46 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 75, 64 },
-		{ 62, 46 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 64, 64 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 0, 0 },
-		{ 62, 46 }
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 },
+		{ 59, 59 }
 	};
 	yytransition = transition;
 
 	static const yystate_t YYNEARFAR YYBASED_CODE state[] = {
 		{ 0, 0, 0 },
-		{ 17, -8, 0 },
+		{ 16, -8, 0 },
 		{ 1, 0, 0 },
-		{ 0, -4, 41 },
-		{ 0, 0, 45 },
-		{ 0, 0, 22 },
-		{ 38, 0, 31 },
-		{ 0, -20, 30 },
-		{ 41, 0, 31 },
-		{ 0, 0, 26 },
+		{ 0, -4, 35 },
+		{ 0, 0, 41 },
+		{ 0, 0, 23 },
+		{ 34, 0, 32 },
+		{ 0, -21, 31 },
+		{ 37, 0, 32 },
 		{ 0, 0, 27 },
-		{ 0, 35, 13 },
-		{ 0, -26, 11 },
-		{ 0, 0, 32 },
-		{ 0, -42, 12 },
-		{ 0, 0, 38 },
-		{ 0, 0, 14 },
-		{ 87, -42, 43 },
 		{ 0, 0, 28 },
+		{ 0, 32, 14 },
+		{ 0, 123, 12 },
 		{ 0, 0, 33 },
-		{ 0, 18, 34 },
-		{ 0, 34, 23 },
-		{ 0, 36, 35 },
-		{ 87, 0, 44 },
-		{ 0, 0, 39 },
-		{ 0, 0, 40 },
+		{ 0, -42, 13 },
 		{ 0, 0, 15 },
-		{ 87, 2, 44 },
-		{ 87, -3, 44 },
-		{ 87, 22, 44 },
-		{ 87, -92, 44 },
-		{ 87, -81, 44 },
-		{ 87, -94, 44 },
-		{ 87, -88, 44 },
-		{ 87, -48, 44 },
-		{ 0, 0, 24 },
-		{ 0, -51, 0 },
-		{ 0, 0, 25 },
-		{ -38, 41, 0 },
-		{ 0, 0, 42 },
-		{ 0, 0, 21 },
-		{ -41, 37, 0 },
-		{ 0, 0, 16 },
-		{ 0, 0, 18 },
-		{ 0, 0, 19 },
+		{ 83, -42, 37 },
 		{ 0, 0, 29 },
-		{ 0, 145, 43 },
-		{ 64, 12, 44 },
+		{ 0, 0, 34 },
+		{ 0, 24, 24 },
+		{ 83, 0, 40 },
+		{ 0, 0, 16 },
+		{ 83, -7, 40 },
+		{ 83, 2, 40 },
+		{ 83, 21, 40 },
+		{ 83, 25, 40 },
+		{ 83, -92, 40 },
+		{ 83, -81, 40 },
+		{ 83, -98, 40 },
+		{ 83, -89, 40 },
+		{ 83, -81, 40 },
+		{ 0, 0, 25 },
+		{ 0, -67, 0 },
+		{ 0, 0, 26 },
+		{ -34, 38, 0 },
 		{ 0, 0, 36 },
+		{ 0, 0, 22 },
+		{ -37, 34, 0 },
 		{ 0, 0, 17 },
-		{ 0, 0, 37 },
-		{ 87, -18, 44 },
-		{ 87, -37, 10 },
-		{ 87, -34, 44 },
-		{ 87, -29, 44 },
-		{ 87, -30, 44 },
-		{ 87, 0, 6 },
-		{ 87, -29, 44 },
-		{ 87, -26, 44 },
-		{ 87, -16, 44 },
-		{ 87, -15, 44 },
+		{ 0, 0, 19 },
 		{ 0, 0, 20 },
-		{ 63, 29, 0 },
-		{ 74, 50, 0 },
-		{ 87, 167, 43 },
-		{ 87, -15, 44 },
-		{ 87, 2, 44 },
-		{ 87, 1, 44 },
-		{ 87, 4, 44 },
-		{ 87, 0, 9 },
-		{ 87, 0, 1 },
-		{ 87, -2, 44 },
-		{ 87, 4, 44 },
-		{ 87, -3, 44 },
-		{ 0, 14, 43 },
-		{ 0, -8, 43 },
-		{ 87, 0, 2 },
-		{ 87, 1, 44 },
-		{ 87, 0, 7 },
-		{ 87, -4, 44 },
-		{ 87, 3, 44 },
-		{ 87, 0, 5 },
-		{ 87, 13, 44 },
-		{ 87, 27, 44 },
-		{ 87, 0, 4 },
-		{ 87, 26, 44 },
-		{ 87, 0, 8 },
-		{ 0, 70, 3 }
+		{ 0, 0, 30 },
+		{ 0, 27, 38 },
+		{ 59, 9, 40 },
+		{ 0, 0, 18 },
+		{ 83, -24, 40 },
+		{ 83, -9, 40 },
+		{ 83, -28, 11 },
+		{ 83, -20, 40 },
+		{ 83, -13, 40 },
+		{ 83, -15, 40 },
+		{ 83, 0, 7 },
+		{ 83, -16, 40 },
+		{ 83, -13, 40 },
+		{ 83, -3, 40 },
+		{ 83, -2, 40 },
+		{ 0, 0, 21 },
+		{ 58, 13, 0 },
+		{ 70, 59, 0 },
+		{ 83, 147, 39 },
+		{ 83, 1, 40 },
+		{ 83, -6, 40 },
+		{ 83, 4, 40 },
+		{ 83, 12, 40 },
+		{ 83, 17, 40 },
+		{ 83, 0, 10 },
+		{ 83, 0, 2 },
+		{ 83, 24, 40 },
+		{ 83, 30, 40 },
+		{ 83, 23, 40 },
+		{ 0, 14, 39 },
+		{ 0, -8, 39 },
+		{ 83, 0, 1 },
+		{ 83, 0, 3 },
+		{ 83, 33, 40 },
+		{ 83, 0, 8 },
+		{ 83, 45, 40 },
+		{ 83, 52, 40 },
+		{ 83, 0, 6 },
+		{ 83, 62, 40 },
+		{ 83, 0, 5 },
+		{ 83, 61, 40 },
+		{ 83, 0, 9 },
+		{ 0, 70, 4 }
 	};
 	yystate = state;
 
@@ -888,26 +831,17 @@ void YYLEXERNAME::yytables()
 		0,
 		0,
 		0,
-		0,
-		0,
-		0,
-		0,
 		0
 	};
 	yybackup = backup;
 }
-#line 105 ".\\mylexer.l"
+#line 115 ".\\mylexer.l"
 
 
 /////////////////////////////////////////////////////////////////////////////
 // programs section
 //定义符号表的结构
-struct TokenAndLexme{
-    char * token;
-    char * lexme;
-    int index;
-    TokenAndLexme*next;
-};
+
 TokenAndLexme * token_head = new TokenAndLexme();
 //往符号表中添加符号
 void addToken(char* token, char* lexme){

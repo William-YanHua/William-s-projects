@@ -5,9 +5,6 @@ ParserWizard generated Lex file.
 
 Date: 2017年10月9日
 ****************************************************************************/
-#ifndef YYSTYPE
-#define YYSTYPE int
-#endif
 #include "myparser.h"
 #include <cstring>
 #include <string>
@@ -106,11 +103,11 @@ literal \"[^\"]*?\"|'[^']*?'
                ss<<yytext;
                int sum;
                ss>>sum;
-               yylval = sum;
+               yylval.ival = sum;
                return INTEGER;
            }
-{number}  {addToken("FLOAT",yytext); yylval = atof(yytext); printf("%f",&yylval);getchar(); return FLOAT;}
-{number}((E|e)[+-]?{number})?  { addToken("DIGIT",yytext); yylval = atoi(yytext); }
+{number}  {addToken("FLOAT",yytext); yylval.dval = atof(yytext); return FLOAT;}
+{number}((E|e)[+-]?{number})?  { addToken("DIGIT",yytext); yylval.dval = atoi(yytext); return FLOAT;}
 {identifier}  { addToken("ID",yytext); return ID;}
 //结尾
 \n  {return ENDFLAG;}
