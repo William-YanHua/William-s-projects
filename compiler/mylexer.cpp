@@ -1,7 +1,7 @@
 /****************************************************************************
 *                     U N R E G I S T E R E D   C O P Y
 * 
-* You are on day 43 of your 30 day trial period.
+* You are on day 51 of your 30 day trial period.
 * 
 * This file was produced by an UNREGISTERED COPY of Parser Generator. It is
 * for evaluation purposes only. If you continue to use Parser Generator 30
@@ -18,8 +18,8 @@
 * mylexer.cpp
 * C++ source file generated from mylexer.l.
 * 
-* Date: 11/10/17
-* Time: 16:18:17
+* Date: 11/18/17
+* Time: 22:12:21
 * 
 * ALex Version: 2.07
 ****************************************************************************/
@@ -173,296 +173,348 @@ int YYLEXERNAME::yyaction(int action)
 	case 1:
 		{
 #line 61 ".\\mylexer.l"
- addToken("BOOL",yytext); return BOOL;
+ addToken("BOOL",yytext);  yylval.sval = yytext; return BOOL;
 #line 178 "mylexer.cpp"
 		}
 		break;
 	case 2:
 		{
 #line 62 ".\\mylexer.l"
- addToken("INT",yytext); return INTEGER;
+ addToken("INT",yytext); yylval.sval = yytext;  return INT;
 #line 185 "mylexer.cpp"
 		}
 		break;
 	case 3:
 		{
 #line 63 ".\\mylexer.l"
- addToken("CHAR",yytext); return CHAR;
+ addToken("CHAR",yytext); yylval.sval = yytext; return CHAR;
 #line 192 "mylexer.cpp"
 		}
 		break;
 	case 4:
 		{
 #line 64 ".\\mylexer.l"
- addToken("STRING",yytext); return STRING;
+ addToken("STRING",yytext); yylval.sval = yytext; return STRING;
 #line 199 "mylexer.cpp"
 		}
 		break;
 	case 5:
 		{
 #line 66 ".\\mylexer.l"
-addToken("FLOAT",yytext);return FLOAT;
+addToken("FLOAT",yytext);yylval.sval = yytext; return FLOAT;
 #line 206 "mylexer.cpp"
 		}
 		break;
 	case 6:
 		{
 #line 67 ".\\mylexer.l"
-addToken("VOID",yytext); return VOID;
+addToken("VOID",yytext); yylval.sval = yytext; return VOID;
 #line 213 "mylexer.cpp"
 		}
 		break;
 	case 7:
 		{
 #line 68 ".\\mylexer.l"
- addToken("IF",yytext); return IF;
+ addToken("IF",yytext);  yylval.sval = yytext; return IF;
 #line 220 "mylexer.cpp"
 		}
 		break;
 	case 8:
 		{
 #line 69 ".\\mylexer.l"
- addToken("ELSE",yytext); return ELSE;
+ addToken("ELSE",yytext);  yylval.sval = yytext; return ELSE;
 #line 227 "mylexer.cpp"
 		}
 		break;
 	case 9:
 		{
 #line 70 ".\\mylexer.l"
- addToken("WHILE",yytext); return WHILE;
+ addToken("WHILE",yytext);  yylval.sval = yytext; return WHILE;
 #line 234 "mylexer.cpp"
 		}
 		break;
 	case 10:
 		{
 #line 71 ".\\mylexer.l"
- addToken("FOR",yytext); return FOR;
+ addToken("FOR",yytext);  yylval.sval = yytext; return FOR;
 #line 241 "mylexer.cpp"
 		}
 		break;
 	case 11:
 		{
 #line 72 ".\\mylexer.l"
- addToken("DO",yytext); return DO;
+ addToken("DO",yytext);  yylval.sval = yytext; return DO;
 #line 248 "mylexer.cpp"
 		}
 		break;
 	case 12:
 		{
-#line 74 ".\\mylexer.l"
- addToken("PLUS",yytext); return PLUS;
+#line 73 ".\\mylexer.l"
+ addToken("RETURN",yytext);  yylval.sval = yytext; return RETURN; 
 #line 255 "mylexer.cpp"
 		}
 		break;
 	case 13:
 		{
 #line 75 ".\\mylexer.l"
- addToken("MINUS",yytext); return MINUS;
+ addToken("CHAR_VAL",yytext); yylval.sval = yytext; return CHAR_VAL; 
 #line 262 "mylexer.cpp"
 		}
 		break;
 	case 14:
 		{
 #line 76 ".\\mylexer.l"
- addToken("MUL",yytext); return MUL;
+ addToken("PLUS",yytext);  yylval.sval = yytext; return PLUS;
 #line 269 "mylexer.cpp"
 		}
 		break;
 	case 15:
 		{
 #line 77 ".\\mylexer.l"
- addToken("DIV",yytext); return DIV;
+ addToken("MINUS",yytext);  yylval.sval = yytext; return MINUS;
 #line 276 "mylexer.cpp"
 		}
 		break;
 	case 16:
 		{
 #line 78 ".\\mylexer.l"
- addToken("POW",yytext); return POW;
+ addToken("MUL",yytext);  yylval.sval = yytext; return MUL;
 #line 283 "mylexer.cpp"
 		}
 		break;
 	case 17:
 		{
 #line 79 ".\\mylexer.l"
- addToken("EXP",yytext); 
+ addToken("DIV",yytext);  yylval.sval = yytext; return DIV;
 #line 290 "mylexer.cpp"
 		}
 		break;
 	case 18:
 		{
 #line 80 ".\\mylexer.l"
- addToken("EQU",yytext); return EQU;
+ addToken("POW",yytext);  yylval.sval = yytext; return POW;
 #line 297 "mylexer.cpp"
 		}
 		break;
 	case 19:
 		{
 #line 81 ".\\mylexer.l"
- addToken("SADD",yytext); return SADD;
+ addToken("MORE",yytext); yylval.sval = yytext; return MORE; 
 #line 304 "mylexer.cpp"
 		}
 		break;
 	case 20:
 		{
 #line 82 ".\\mylexer.l"
- addToken("SSUB",yytext); return SSUB;
+ addToken("LESS",yytext); yylval.sval = yytext;  return LESS; 
 #line 311 "mylexer.cpp"
 		}
 		break;
 	case 21:
 		{
 #line 83 ".\\mylexer.l"
- addToken("OR",yytext); return OR;
+ addToken("MORE_EQU",yytext); yylval.sval = yytext; return MORE_EQU; 
 #line 318 "mylexer.cpp"
 		}
 		break;
 	case 22:
 		{
 #line 84 ".\\mylexer.l"
- addToken("AND",yytext); return AND;
+ addToken("LESS_EQO",yytext); yylval.sval = yytext; return LESS_EQU; 
 #line 325 "mylexer.cpp"
 		}
 		break;
 	case 23:
 		{
 #line 85 ".\\mylexer.l"
- addToken("NOT",yytext); return NOT;
+ addToken("EXP",yytext); yylval.sval = yytext; return EXP;
 #line 332 "mylexer.cpp"
 		}
 		break;
 	case 24:
 		{
 #line 86 ".\\mylexer.l"
- addToken("ASSIGN",yytext); return ASSIGN;
+ addToken("EQU",yytext); yylval.sval = yytext; return EQU;
 #line 339 "mylexer.cpp"
 		}
 		break;
 	case 25:
 		{
 #line 87 ".\\mylexer.l"
- addToken("LBRACE",yytext);return LBRACE;
+ addToken("SADD",yytext); yylval.sval = yytext;  return SADD;
 #line 346 "mylexer.cpp"
 		}
 		break;
 	case 26:
 		{
 #line 88 ".\\mylexer.l"
- addToken("RBRACE",yytext); return RBRACE;
+ addToken("SSUB",yytext); yylval.sval = yytext; return SSUB;
 #line 353 "mylexer.cpp"
 		}
 		break;
 	case 27:
 		{
 #line 89 ".\\mylexer.l"
- addToken("LBRACKET",yytext); return LBRACKET;
+ addToken("PLUS_AND",yytext); yylval.sval = yytext; return PLUS_AND; 
 #line 360 "mylexer.cpp"
 		}
 		break;
 	case 28:
 		{
 #line 90 ".\\mylexer.l"
- addToken("RBRACKET",yytext); return RBRACKET;
+ addToken("MINUS_AND",yytext); yylval.sval = yytext; return MINUS_AND; 
 #line 367 "mylexer.cpp"
 		}
 		break;
 	case 29:
 		{
 #line 91 ".\\mylexer.l"
- addToken("COLON",yytext); return COLON;
+ addToken("OR",yytext); yylval.sval = yytext; return OR;
 #line 374 "mylexer.cpp"
 		}
 		break;
 	case 30:
 		{
 #line 92 ".\\mylexer.l"
- addToken("POINTER",yytext); return POINTER;
+ addToken("AND",yytext); yylval.sval = yytext; return AND;
 #line 381 "mylexer.cpp"
 		}
 		break;
 	case 31:
 		{
 #line 93 ".\\mylexer.l"
- addToken("REF",yytext); return REF;
+ addToken("NOT",yytext); yylval.sval = yytext; return NOT;
 #line 388 "mylexer.cpp"
 		}
 		break;
 	case 32:
 		{
 #line 94 ".\\mylexer.l"
- addToken("QUOTE",yytext); return QUOTE;
+ addToken("ASSIGN",yytext); yylval.sval = yytext; return ASSIGN;
 #line 395 "mylexer.cpp"
 		}
 		break;
 	case 33:
 		{
 #line 95 ".\\mylexer.l"
- addToken("COMMA",yytext); return COMMA;
+ addToken("LBRACE",yytext);  yylval.sval = yytext; return LBRACE;
 #line 402 "mylexer.cpp"
 		}
 		break;
 	case 34:
 		{
 #line 96 ".\\mylexer.l"
- addToken("SEMICOLON",yytext); return SEMICOLON;
+ addToken("RBRACE",yytext);  yylval.sval = yytext;  return RBRACE;
 #line 409 "mylexer.cpp"
 		}
 		break;
 	case 35:
 		{
 #line 97 ".\\mylexer.l"
-;
+ addToken("LBRACKET",yytext);  yylval.sval = yytext;   return LBRACKET;
 #line 416 "mylexer.cpp"
 		}
 		break;
 	case 36:
 		{
-#line 99 ".\\mylexer.l"
- addToken("LITERAL",yytext); 
+#line 98 ".\\mylexer.l"
+ addToken("RBRACKET",yytext);  yylval.sval = yytext;   return RBRACKET;
 #line 423 "mylexer.cpp"
 		}
 		break;
 	case 37:
 		{
-#line 100 ".\\mylexer.l"
-
-               addToken("INTEGER",yytext);
-               stringstream ss;
-               ss<<yytext;
-               int sum;
-               ss>>sum;
-               yylval.ival = sum;
-               return INTEGER;
-           
-#line 438 "mylexer.cpp"
+#line 99 ".\\mylexer.l"
+ addToken("COLON",yytext);  yylval.sval = yytext; return COLON;
+#line 430 "mylexer.cpp"
 		}
 		break;
 	case 38:
 		{
-#line 109 ".\\mylexer.l"
-addToken("FLOAT",yytext); yylval.dval = atof(yytext); return FLOAT;
-#line 445 "mylexer.cpp"
+#line 100 ".\\mylexer.l"
+ addToken("POINTER",yytext);  yylval.sval = yytext; return POINTER;
+#line 437 "mylexer.cpp"
 		}
 		break;
 	case 39:
 		{
-#line 110 ".\\mylexer.l"
- addToken("DIGIT",yytext); yylval.dval = atoi(yytext); return FLOAT;
-#line 452 "mylexer.cpp"
+#line 101 ".\\mylexer.l"
+ addToken("REF",yytext);  yylval.sval = yytext; return REF;
+#line 444 "mylexer.cpp"
 		}
 		break;
 	case 40:
 		{
-#line 111 ".\\mylexer.l"
- addToken("ID",yytext); return ID;
-#line 459 "mylexer.cpp"
+#line 102 ".\\mylexer.l"
+ addToken("QUOTE",yytext);  yylval.sval = yytext; return QUOTE;
+#line 451 "mylexer.cpp"
 		}
 		break;
 	case 41:
 		{
-#line 113 ".\\mylexer.l"
+#line 103 ".\\mylexer.l"
+ addToken("COMMA",yytext); yylval.sval = ","; return COMMA;
+#line 458 "mylexer.cpp"
+		}
+		break;
+	case 42:
+		{
+#line 104 ".\\mylexer.l"
+ addToken("SEMICOLON",yytext);  yylval.sval = yytext; return SEMICOLON;
+#line 465 "mylexer.cpp"
+		}
+		break;
+	case 43:
+		{
+#line 105 ".\\mylexer.l"
+;
+#line 472 "mylexer.cpp"
+		}
+		break;
+	case 44:
+		{
+#line 108 ".\\mylexer.l"
+ addToken("LITERAL",yytext); 
+#line 479 "mylexer.cpp"
+		}
+		break;
+	case 45:
+		{
+#line 109 ".\\mylexer.l"
+
+               addToken("INTEGER",yytext);
+               yylval.ival = atoi(yytext);
+               return INTEGER;
+           
+#line 490 "mylexer.cpp"
+		}
+		break;
+	case 46:
+		{
+#line 114 ".\\mylexer.l"
+ 
+               addToken("FLOAT_VAL",yytext); 
+               yylval.dval = atof(yytext); 
+               return FLOAT_VAL;
+          
+#line 501 "mylexer.cpp"
+		}
+		break;
+#line 119 ".\\mylexer.l"
+          
+#line 506 "mylexer.cpp"
+	case 47:
+		{
+#line 122 ".\\mylexer.l"
+ addToken("ID",yytext); yylval.sval = new char();  yylval.sval = yytext; return ID;
+#line 511 "mylexer.cpp"
+		}
+		break;
+	case 48:
+		{
+#line 124 ".\\mylexer.l"
 return ENDFLAG;
-#line 466 "mylexer.cpp"
+#line 518 "mylexer.cpp"
 		}
 		break;
 	default:
@@ -491,14 +543,15 @@ void YYLEXERNAME::yytables()
 	};
 	yymatch = match;
 
-	yytransitionmax = 205;
+	yytransitionmax = 251;
 	static const yytransition_t YYNEARFAR YYBASED_CODE transition[] = {
 		{ 0, 0 },
 		{ 3, 1 },
 		{ 4, 1 },
-		{ 40, 14 },
-		{ 42, 16 },
+		{ 43, 12 },
 		{ 3, 3 },
+		{ 48, 16 },
+		{ 45, 14 },
 		{ 16, 16 },
 		{ 16, 16 },
 		{ 16, 16 },
@@ -509,20 +562,19 @@ void YYLEXERNAME::yytables()
 		{ 16, 16 },
 		{ 16, 16 },
 		{ 16, 16 },
-		{ 49, 26 },
-		{ 36, 7 },
-		{ 53, 28 },
-		{ 50, 26 },
-		{ 41, 14 },
-		{ 51, 27 },
-		{ 54, 29 },
-		{ 55, 30 },
+		{ 51, 21 },
+		{ 52, 24 },
+		{ 53, 25 },
+		{ 58, 29 },
+		{ 44, 12 },
+		{ 46, 14 },
+		{ 47, 14 },
 		{ 3, 1 },
 		{ 5, 1 },
 		{ 6, 1 },
-		{ 43, 16 },
 		{ 3, 3 },
-		{ 52, 27 },
+		{ 59, 29 },
+		{ 54, 26 },
 		{ 7, 1 },
 		{ 8, 1 },
 		{ 9, 1 },
@@ -533,171 +585,217 @@ void YYLEXERNAME::yytables()
 		{ 14, 1 },
 		{ 0, 1 },
 		{ 15, 1 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
-		{ 71, 71 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
+		{ 48, 48 },
 		{ 17, 1 },
 		{ 18, 1 },
-		{ 58, 43 },
 		{ 19, 1 },
-		{ 58, 43 },
-		{ 0, 43 },
-		{ 58, 57 },
-		{ 56, 32 },
-		{ 58, 57 },
-		{ 43, 16 },
-		{ 71, 70 },
 		{ 20, 1 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 70, 70 },
-		{ 35, 34 },
-		{ 35, 37 },
-		{ 38, 11 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 42, 42 },
-		{ 44, 19 },
 		{ 21, 1 },
-		{ 60, 45 },
-		{ 61, 46 },
-		{ 62, 47 },
-		{ 22, 1 },
-		{ 23, 1 },
-		{ 24, 1 },
-		{ 25, 1 },
-		{ 26, 1 },
-		{ 63, 48 },
-		{ 57, 42 },
-		{ 27, 1 },
-		{ 64, 49 },
-		{ 65, 50 },
+		{ 56, 28 },
+		{ 55, 27 },
+		{ 42, 11 },
+		{ 57, 28 },
+		{ 39, 7 },
+		{ 60, 30 },
+		{ 61, 31 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 62, 32 },
+		{ 63, 33 },
+		{ 41, 8 },
+		{ 64, 35 },
+		{ 38, 37 },
+		{ 38, 40 },
+		{ 65, 41 },
+		{ 49, 19 },
 		{ 66, 52 },
 		{ 67, 53 },
 		{ 68, 54 },
 		{ 69, 55 },
-		{ 45, 22 },
-		{ 0, 58 },
-		{ 46, 23 },
+		{ 70, 56 },
+		{ 71, 57 },
+		{ 72, 59 },
+		{ 73, 60 },
+		{ 74, 61 },
+		{ 75, 62 },
+		{ 76, 63 },
+		{ 77, 66 },
+		{ 78, 67 },
+		{ 79, 68 },
+		{ 23, 1 },
+		{ 80, 69 },
+		{ 81, 70 },
+		{ 82, 73 },
+		{ 24, 1 },
+		{ 25, 1 },
+		{ 26, 1 },
+		{ 27, 1 },
 		{ 28, 1 },
-		{ 73, 61 },
-		{ 72, 60 },
+		{ 83, 74 },
+		{ 84, 75 },
 		{ 29, 1 },
+		{ 85, 76 },
+		{ 86, 79 },
+		{ 87, 81 },
+		{ 88, 82 },
+		{ 89, 83 },
+		{ 90, 85 },
+		{ 87, 86 },
+		{ 91, 88 },
 		{ 30, 1 },
-		{ 74, 62 },
-		{ 75, 63 },
-		{ 76, 64 },
 		{ 31, 1 },
+		{ 92, 89 },
+		{ 50, 20 },
 		{ 32, 1 },
 		{ 33, 1 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 57, 42 },
-		{ 77, 67 },
-		{ 78, 68 },
-		{ 79, 69 },
-		{ 47, 24 },
-		{ 48, 25 },
-		{ 80, 74 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 80, 76 },
-		{ 81, 77 },
-		{ 82, 79 },
-		{ 83, 81 },
-		{ 20, 83 },
-		{ 39, 12 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 20, 83 },
-		{ 71, 59 },
 		{ 0, 0 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 },
-		{ 59, 59 }
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 34, 1 },
+		{ 35, 1 },
+		{ 36, 1 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 41, 8 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 0, 0 },
+		{ 22, 92 },
+		{ 0, 0 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 },
+		{ 22, 92 }
 	};
 	yytransition = transition;
 
@@ -705,87 +803,96 @@ void YYLEXERNAME::yytables()
 		{ 0, 0, 0 },
 		{ 16, -8, 0 },
 		{ 1, 0, 0 },
-		{ 0, -4, 35 },
-		{ 0, 0, 41 },
-		{ 0, 0, 23 },
-		{ 34, 0, 32 },
-		{ 0, -21, 31 },
-		{ 37, 0, 32 },
-		{ 0, 0, 27 },
-		{ 0, 0, 28 },
-		{ 0, 32, 14 },
-		{ 0, 123, 12 },
-		{ 0, 0, 33 },
-		{ 0, -42, 13 },
-		{ 0, 0, 15 },
-		{ 83, -42, 37 },
-		{ 0, 0, 29 },
-		{ 0, 0, 34 },
-		{ 0, 24, 24 },
-		{ 83, 0, 40 },
-		{ 0, 0, 16 },
-		{ 83, -7, 40 },
-		{ 83, 2, 40 },
-		{ 83, 21, 40 },
-		{ 83, 25, 40 },
-		{ 83, -92, 40 },
-		{ 83, -81, 40 },
-		{ 83, -98, 40 },
-		{ 83, -89, 40 },
-		{ 83, -81, 40 },
-		{ 0, 0, 25 },
-		{ 0, -67, 0 },
-		{ 0, 0, 26 },
-		{ -34, 38, 0 },
+		{ 0, -5, 43 },
+		{ 0, 0, 48 },
+		{ 0, 0, 31 },
+		{ 37, 0, 40 },
+		{ 0, 21, 39 },
+		{ 40, 53, 40 },
+		{ 0, 0, 35 },
 		{ 0, 0, 36 },
-		{ 0, 0, 22 },
-		{ -37, 34, 0 },
+		{ 0, 15, 16 },
+		{ 0, -40, 14 },
+		{ 0, 0, 41 },
+		{ 0, -39, 15 },
 		{ 0, 0, 17 },
-		{ 0, 0, 19 },
-		{ 0, 0, 20 },
-		{ 0, 0, 30 },
-		{ 0, 27, 38 },
-		{ 59, 9, 40 },
+		{ 92, -41, 45 },
+		{ 0, 0, 37 },
+		{ 0, 0, 42 },
+		{ 0, 10, 20 },
+		{ 0, 48, 32 },
+		{ 0, -44, 19 },
+		{ 92, 0, 47 },
 		{ 0, 0, 18 },
-		{ 83, -24, 40 },
-		{ 83, -9, 40 },
-		{ 83, -28, 11 },
-		{ 83, -20, 40 },
-		{ 83, -13, 40 },
-		{ 83, -15, 40 },
-		{ 83, 0, 7 },
-		{ 83, -16, 40 },
-		{ 83, -13, 40 },
-		{ 83, -3, 40 },
-		{ 83, -2, 40 },
+		{ 92, -93, 47 },
+		{ 92, -85, 47 },
+		{ 92, -82, 47 },
+		{ 92, -52, 47 },
+		{ 92, -53, 47 },
+		{ 92, -82, 47 },
+		{ 92, -41, 47 },
+		{ 92, -55, 47 },
+		{ 92, -47, 47 },
+		{ 92, -39, 47 },
+		{ 0, 0, 33 },
+		{ 0, -57, 0 },
+		{ 0, 0, 34 },
+		{ -37, 34, 0 },
+		{ 0, 0, 44 },
+		{ 0, 0, 30 },
+		{ -40, 30, 0 },
+		{ -40, 31, 0 },
+		{ 0, 0, 23 },
+		{ 0, 0, 25 },
+		{ 0, 0, 27 },
+		{ 0, 0, 26 },
+		{ 0, 0, 28 },
+		{ 0, 0, 38 },
+		{ 0, -8, 46 },
+		{ 0, 0, 22 },
+		{ 0, 0, 24 },
 		{ 0, 0, 21 },
-		{ 58, 13, 0 },
-		{ 70, 59, 0 },
-		{ 83, 147, 39 },
-		{ 83, 1, 40 },
-		{ 83, -6, 40 },
-		{ 83, 4, 40 },
-		{ 83, 12, 40 },
-		{ 83, 17, 40 },
-		{ 83, 0, 10 },
-		{ 83, 0, 2 },
-		{ 83, 24, 40 },
-		{ 83, 30, 40 },
-		{ 83, 23, 40 },
-		{ 0, 14, 39 },
-		{ 0, -8, 39 },
-		{ 83, 0, 1 },
-		{ 83, 0, 3 },
-		{ 83, 33, 40 },
-		{ 83, 0, 8 },
-		{ 83, 45, 40 },
-		{ 83, 52, 40 },
-		{ 83, 0, 6 },
-		{ 83, 62, 40 },
-		{ 83, 0, 5 },
-		{ 83, 61, 40 },
-		{ 83, 0, 9 },
-		{ 0, 70, 4 }
+		{ 92, -39, 47 },
+		{ 92, -24, 47 },
+		{ 92, -43, 11 },
+		{ 92, -40, 47 },
+		{ 92, -35, 47 },
+		{ 92, -37, 47 },
+		{ 92, 0, 7 },
+		{ 92, -38, 47 },
+		{ 92, -37, 47 },
+		{ 92, -34, 47 },
+		{ 92, -24, 47 },
+		{ 92, -23, 47 },
+		{ 0, 0, 29 },
+		{ 0, 0, 13 },
+		{ 92, -25, 47 },
+		{ 92, -30, 47 },
+		{ 92, -13, 47 },
+		{ 92, -14, 47 },
+		{ 92, -9, 47 },
+		{ 92, 0, 10 },
+		{ 92, 0, 2 },
+		{ 92, -28, 47 },
+		{ 92, -10, 47 },
+		{ 92, -4, 47 },
+		{ 92, -10, 47 },
+		{ 92, 0, 1 },
+		{ 92, 0, 3 },
+		{ 92, -9, 47 },
+		{ 92, 0, 8 },
+		{ 92, -16, 47 },
+		{ 92, -13, 47 },
+		{ 92, -8, 47 },
+		{ 92, 0, 6 },
+		{ 92, 2, 47 },
+		{ 92, 3, 47 },
+		{ 92, 0, 5 },
+		{ 92, -5, 47 },
+		{ 92, 5, 47 },
+		{ 92, 0, 9 },
+		{ 92, 0, 12 },
+		{ 0, 128, 4 }
 	};
 	yystate = state;
 
@@ -831,11 +938,18 @@ void YYLEXERNAME::yytables()
 		0,
 		0,
 		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 		0
 	};
 	yybackup = backup;
 }
-#line 115 ".\\mylexer.l"
+#line 126 ".\\mylexer.l"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -857,13 +971,13 @@ void addToken(char* token, char* lexme){
     temp_token->index = index;
     temp_token->next = token_head;
     token_head = temp_token;
-    printf("%-10s\t%-20s\t",temp_token->token,temp_token->lexme);
-    if(index != -1){
-        printf("%-10d\n",index);
-    }
-    else{
-	    printf("\n");
-    }
+    //printf("%-10s\t%-20s\t",temp_token->token,temp_token->lexme);
+    //if(index != -1){
+    //    printf("%-10d\n",index);
+    //}
+    //else{
+	//    printf("\n");
+    //}
 }
 //获取该词素在符号表中的index
 int getIndex(char*lexme){

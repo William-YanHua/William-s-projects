@@ -1,7 +1,7 @@
 /****************************************************************************
 *                     U N R E G I S T E R E D   C O P Y
 * 
-* You are on day 43 of your 30 day trial period.
+* You are on day 51 of your 30 day trial period.
 * 
 * This file was produced by an UNREGISTERED COPY of Parser Generator. It is
 * for evaluation purposes only. If you continue to use Parser Generator 30
@@ -18,8 +18,8 @@
 * myparser.h
 * C++ header file generated from myparser.y.
 * 
-* Date: 11/10/17
-* Time: 16:23:45
+* Date: 11/18/17
+* Time: 22:13:39
 * 
 * AYACC Version: 2.07
 ****************************************************************************/
@@ -61,7 +61,7 @@ protected:
 	virtual void yycopyattribute(void YYFAR* dest, const void YYFAR* src, int count);
 
 public:
-#line 29 ".\\myparser.y"
+#line 30 ".\\myparser.y"
 
 
 	// place any extra class members here
@@ -76,67 +76,90 @@ public:
 
 #ifndef YYSTYPE
 union tagYYSTYPE {
-#line 45 ".\\myparser.y"
+#line 46 ".\\myparser.y"
 
     double dval;
     int ival;
+    char* sval;
+    char symbol;
 
-#line 85 "myparser.h"
+#line 87 "myparser.h"
 };
 
 #define YYSTYPE union tagYYSTYPE
 #endif
 
-#define FLOAT 257
+#define FLOAT_VAL 257
 #define INTEGER 258
-#line 51 ".\\myparser.y"
+#define INT 259
+#define FLOAT 260
+#define STRING 261
+#define VOID 262
+#define DOUBLE 263
+#define CHAR 264
+#define ID 265
+#define COMMA 266
+#define SEMICOLON 267
+#define FOR 268
+#line 59 ".\\myparser.y"
 
 	// place any extra class members here
 
-#line 97 "myparser.h"
-#define INT 259
-#define CHAR 260
-#define STRING 261
-#define DOUBLE 262
-#define VOID 263
-#define IF 264
-#define ELSE 265
-#define WHILE 266
-#define FOR 267
-#define DO 268
-#define BOOL 269
-#define PLUS 270
-#define MINUS 271
-#define MUL 272
-#define DIV 273
-#define POW 274
-#define EXP 275
-#define EQU 276
-#define SADD 277
-#define SSUB 278
-#define OR 279
-#define AND 280
-#define NOT 281
-#define ASSIGN 282
-#define LBRACE 283
-#define RBRACE 284
-#define LBRACKET 285
-#define RBRACKET 286
-#define COLON 287
-#define POINTER 288
-#define REF 289
-#define QUOTE 290
-#define COMMA 291
-#define SEMICOLON 292
-#define LESS 293
-#define MORE 294
-#define OUTPUT 295
-#define INPUT 296
-#define DOT 297
-#define LSQBRACKET 298
-#define RSQBRACKET 299
-#define LITERAL 300
-#define ID 301
-#define ENDFLAG 302
-#define UMINUS 303
+#line 109 "myparser.h"
+#define IF 269
+#define ELSE 270
+#define WHILE 271
+#define DO 272
+#define BOOL 273
+#define PLUS 274
+#define MINUS 275
+#define MUL 276
+#define DIV 277
+#define POW 278
+#define EXP 279
+#define EQU 280
+#define SADD 281
+#define SSUB 282
+#define OR 283
+#define PLUS_AND 284
+#define MINUS_AND 285
+#define AND 286
+#define NOT 287
+#define ASSIGN 288
+#define LBRACE 289
+#define RBRACE 290
+#define LBRACKET 291
+#define RBRACKET 292
+#define COLON 293
+#define POINTER 294
+#define REF 295
+#define QUOTE 296
+#define LESS 297
+#define MORE 298
+#define OUTPUT 299
+#define INPUT 300
+#define DOT 301
+#define LSQBRACKET 302
+#define RSQBRACKET 303
+#define LITERAL 304
+#define ENDFLAG 305
+#define VAR_DECALRE 306
+#define FUNCTION_NAME 307
+#define PARAMS 308
+#define FUNCITON_BODY 309
+#define SELF_OPERATION 310
+#define FALSE 311
+#define TRUE 312
+#define LESS_EQU 313
+#define MORE_EQU 314
+#define ASSIGN_GRAMMAR 315
+#define RETURN 316
+#define RETURN_VALS 317
+#define CALL_FUNTIONS 318
+#define LOGICAL_BLOCK 319
+#define CALL 320
+#define DOUBLE_VAL 321
+#define STRING_VAL 322
+#define CHAR_VAL 323
+#define UMINUS 324
 #endif
